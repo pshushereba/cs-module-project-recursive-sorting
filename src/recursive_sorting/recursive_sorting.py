@@ -2,9 +2,28 @@
 def merge(arrA, arrB):
     elements = len(arrA) + len(arrB)
     merged_arr = [0] * elements
-
+    i = 0
+    j = 0
+    k = 0
     # Your code here
+    while i < len(arrA) and j < len(arrB):
+        if arrA[i] < arrB[j]:
+            merged_arr[k] = arrA[i]
+            i += 1
+        else:
+            merged_arr[k] = arrB[j]
+            j += 1
+        k += 1
 
+    while i < len(arrA):
+        merged_arr[k] = arrA[i]
+        k += 1
+        i += 1
+
+    while j < len(arrB):
+        merged_arr[k] = arrB[j]
+        k += 1
+        j += 1
 
     return merged_arr
 
@@ -23,6 +42,7 @@ def merge_sort(arr):
 
     return arr
 
+print(merge_sort([5,8,12,1,14,7,15]))
 
 # implement an in-place merge sort algorithm
 def merge_in_place(arr, start, mid, end):
